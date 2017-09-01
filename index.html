@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+      .rooms {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 100px;
+        background: #fff;
+      }
+      .rooms li:hover {
+        background: tomato;
+        cursor: pointer;
+      }
+      .connect {
+        position: absolute;
+        left: 50%;
+        top: 20px;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,.2);
+        padding: 5px 10px;
+        color: #fff;
+        visibility: hidden;
+      }
+
+      @keyframes fade {
+        0% {
+          visibility: visible;
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        80% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <ol class="rooms">
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+    </ol>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+    <div class="connect"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var socket = io(); // TIP: io() with no args does auto-discovery
+      
+      $('button').click(function () {
+        var msg = $('#m').val();
+        console.log(msg)
+        socket.emit('send msg', msg);
+        $('#m').val('');
+        $('#m').focus();
+        return false;
+      })
+
+      socket.on('send msg', function (msg) {
+        $('#messages').append($('<li>').text(msg));
+      })
+
+      $('.rooms li').click(function (e) {
+        $('#messages').text('')
+        console.log('change to ' + e.target.innerText)
+        socket.emit('change room', e.target.innerText)
+      })
+      socket.on('user connected', function (name) {
+        console.log(name)
+        $('.connect').text(name).css({'animation': 'fade 2s linear'});
+      })
+    </script>
+  </body>
+</html>

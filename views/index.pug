@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(href="/css/style.css" rel="stylesheet")
+    script(src="/socket.io/socket.io.js")
+    title chat
+  body
+    .container
+      .header
+        .onlineNum 0
+        div.header_title
+          span 聊天室 - 
+          span.now 大厅
+      .main
+        .content
+          .content_saying
+            .saying_box
+              .title 消息列表
+              ul.msg
+          .content_say
+            .say_box
+              .say_info(contenteditable="true")
+              .btns
+                .btn.send_btn(title="ctrl+Enter") 发送
+                .btn.clear_btn 清屏
+        .list
+          .list_rooms
+            .rooms_box
+              div.rooms.title
+                span 房间列表
+                span.addRoom +
+              ul.rooms_list
+          .list_users
+            .users_box
+              .title 用户列表
+              ul.users
+    script(src="/js/jquery.min.js")
+    script(src="/js/jquery.cookie.js")
+    script(src="/js/index.js")

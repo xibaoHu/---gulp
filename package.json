@@ -1,0 +1,29 @@
+{
+  "name": "learn-socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "body-parser": "^1.17.2",
+    "browser-sync": "^2.18.13",
+    "express": "^4.15.4",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "pug": "^2.0.0-rc.3",
+    "socket.io": "^2.0.3"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.3"
+  }
+}

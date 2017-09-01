@@ -1,0 +1,70 @@
+.content {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 50px;
+  form {
+    background: #F8F8F8;
+    padding: 20px 50px;
+    padding-bottom: 70px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    box-shadow: 1px -1px 2px #D9D8EC;
+    .title {
+      margin: 10px 0;
+      text-align: center;
+      color: #9FACEE;
+      font-weight: bold;
+    }
+    .name {
+      border: 0;
+      outline: 0;
+      height: 40px;
+      width: 200px;
+      border-radius: 20px;
+      background: #ddd;
+      padding: 0 20px;
+      box-sizing: border-box;
+      color: #777;
+      &:focus {
+        box-shadow: 0 0 2px #777;
+      }
+    }
+    .btns {
+      margin: 20px 0 10px 0;
+      input {
+        border: 0;
+        background: #9FACEE;
+        padding: 5px;
+        color: #fff;
+        margin: 0 10px;
+        border-radius: 5px;
+      }
+    }
+    .logo {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: #9FACEE;
+      text-align: right;
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+        line-height: 50px;
+        padding-right: 30px;
+        span {
+          font-size: 14px;
+        }
+        &:hover {
+          color: #ddd;
+        }
+      }
+    }
+  }
+}

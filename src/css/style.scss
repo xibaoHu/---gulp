@@ -1,0 +1,278 @@
+body, ul, div, p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: 'Helvetica Neue',Helvetica,Arial,'Microsoft Yahei';
+  color: #ede7f6;
+}
+li {
+  list-style: none;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  min-width: 600px;
+  min-height: 500px;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 50px;
+  background: #F6F6F6;
+}
+
+.header {
+  height: 50px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: #6e7dbb;
+  .onlineNum {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    height: 28px;
+    line-height: 22px;
+    padding: 3px 3px 3px 15px;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 11px;
+      left: 5px;
+      width: 0px;
+      height: 0px;
+      border-radius: 50%;
+      border: 3px solid #14F714;
+      box-shadow: 0 0 5px 1px #F4F8F4;
+    }
+  }
+  .header_title {
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+  }
+}
+.main {
+  position: relative;
+  height: 100%;
+  .title {
+    text-align: center;
+  }
+}
+.content {
+  width: 100%;
+  padding-right: 220px;
+  background-clip: content-box;
+  height: 100%;
+  padding-bottom: 120px;
+}
+.content_saying {
+  height: 100%;
+  overflow: auto;
+  .msg {
+    position: relative;
+  }
+  .system {
+    color: #004ba0;
+    text-align: center;
+  }
+  .mine_info {
+    
+  }
+  .info {
+    overflow: hidden;
+    margin: 0 10px;
+    .info_time {
+      display: inline-block;
+      font-size: 20px;
+      transform: scale(0.5) translateY(5px);
+      color: #aaa;
+    }
+    .others_info_time {
+      transform-origin: left;
+      padding-left: 16px;
+    }
+    .mine_info_time {
+      transform-origin: right;
+      padding-right: 10px;
+    }
+    .info_user {
+      color: #000;
+    }
+    .info_content {
+      min-width: 30px;
+      max-width: 70%;
+      word-break: break-all;
+      background: #d2deff;
+      border-radius: 10px;
+      margin-top: 10px;
+      position: relative;
+      padding: 10px;
+      color: #333;
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #d2deff;
+        top: -7px;
+      }
+    }
+    .mine_info_user {
+      float: right;
+    }
+    .mine_info_content {
+      float: right;
+      clear: both;
+      &:before {
+        right: 7px;
+      }
+    }
+    .others_info_content {
+      float: left;
+      &:before {
+        left: 7px;
+      }
+    }
+  }
+}
+.content_say {
+  height: 120px;
+  .say_box {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+  }
+  .say_info {
+    height: 90%;
+    flex-grow: 1;
+    border: 1px solid #aaa;
+    overflow: auto;
+    word-break: break-all;
+    color: #000;
+    margin-left: 5px;
+    padding: 5px;
+    &:focus {
+      box-shadow: 0 0 2px #777;
+    }
+  }
+  .btns {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 10px;
+  }
+  .btn {
+    width: 60px;
+    background: #9facee;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+  }
+}
+
+.list {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 220px;
+  height: 100%;
+}
+.list_rooms, .list_users {
+  li {
+    color: #777;
+  }
+  height: 50%;
+}
+.list_rooms {
+  .title {
+    position: relative;
+  }
+  .addRoom {
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    &:hover {
+      color: #6e7dbb;
+    }
+  }
+  .active_room {
+    background: #83b9ff;
+    color: #fff;
+  }
+  .rooms_list li:hover {
+    background: lighten(#00a1d6, 3);
+    cursor: pointer;
+    color: #fff;
+  }
+  .rooms_list {
+    li {
+      position: relative;
+      transition: all .3s linear;
+      padding-left: 5px;
+    }
+    .usersNum {
+      position: absolute;
+      right: 5px;
+      font-size: 12px;
+    }
+  }
+}
+.list_users {
+  ul li:hover {
+    color: lighten(#00a1d6, 3);
+  }
+  .me {
+    color: #00a1d6;
+  }
+}
+
+.content_saying,
+.content_say,
+.list_rooms,
+.list_users {
+  padding: 5px;
+}
+.saying_box,
+.say_box,
+.rooms_box,
+.users_box {
+  height: 100%;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #eee;
+}
+.saying_box,
+.rooms_box,
+.users_box {
+  padding-top: 26px;
+  position: relative;
+  .title {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    line-height: 26px;
+    font-size: 15px;
+    background: #9facee;
+  }
+  ul {
+    padding: 5px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    li {
+      padding: 3px 0;
+    }
+  }
+}
